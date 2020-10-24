@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:http="http://www.mulesoft.org/schema/mule/http" xmlns="http://www.mulesoft.org/schema/mule/core"
+	xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd">
+	<http:listener-config name="HTTP_Listener_config" doc:name="HTTP Listener config" doc:id="6fd1cec2-ddc2-4a6d-a5d1-2b526c98ba60" >
+		<http:listener-connection host="0.0.0.0" port="8081" />
+	</http:listener-config>
+	<flow name="mule4-sample-http-serviceFlow" doc:id="c2f29e45-b506-4faa-b9c5-c9a5f032431b" >
+		<http:listener doc:name="Listener" doc:id="3f54ff31-40d3-41af-aad2-2b001e427982" config-ref="HTTP_Listener_config" path="ping" allowedMethods="GET"/>
+		<set-payload value="#['Hello ' ++ attributes.queryParams.name ++ ', Welocme to MuleSoft Team']" doc:name="Set Payload" doc:id="b93a1b70-65e9-40fd-a812-f321d9663d15" />
+		<logger level="INFO" doc:name="Logger" doc:id="da9e7695-07d5-4d46-b2dc-a6ca7fa2c093" message="Received request from user"/>
+	</flow>
+</mule>
