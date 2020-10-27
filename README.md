@@ -6,3 +6,5 @@ Sample Mule4 application with HTTP endpoint. You can learn to easily expose a se
 2. Maven
 3. Anypoint Studio 7.6.0
 
+Fancy for video, refer here  - [HTTP-YouTube](https://youtu.be/FMYWmq6j3_A)
+
